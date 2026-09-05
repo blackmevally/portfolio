@@ -1,137 +1,16 @@
 <?php
-
 declare(strict_types=1);
-
 $projects = require __DIR__ . '/config/projects.php';
+$lang = ($_GET['lang'] ?? 'id') === 'en' ? 'en' : 'id';
 $categories = array_values(array_unique(array_column($projects, 'category')));
-$statusClass = static fn(string $status): string => strtolower(str_replace([' ', '/'], '-', $status));
+$copy = [
+'id'=>['products'=>'Produk & Project','solutions'=>'Solusi','about'=>'Tentang','contact'=>'Kontak','hero'=>'Software systems built for real-world operations.','heroCopy'=>'Solusi digital praktis untuk healthcare, community services, infrastructure, dan automation — dirancang untuk deployment, customization, dan continuous improvement.','explore'=>'Lihat Produk','demo'=>'Minta Demo','catalog'=>'CATALOG','catalogCopy'=>'Koleksi software yang dapat dikembangkan menjadi deployment package, custom implementation, integration service, atau commercial product.','all'=>'Semua','what'=>'WHAT I BUILD','solutionTitle'=>'Dari masalah operasional menjadi sistem yang siap digunakan.','health'=>'Healthcare','healthText'=>'Queue systems, dashboard, SIMRS extensions, interoperability, monitoring, dan medical-imaging workflows.','community'=>'Community','communityText'=>'Platform informasi digital dan TV/kiosk experience untuk organisasi komunitas dan layanan lokal.','automation'=>'Automation','automationText'=>'Automation yang menghubungkan aplikasi web, perangkat, recognition systems, dan operational workflows.','aboutTitle'=>'Independent software development dengan deployment-first mindset.','aboutText'=>'Blackmevally adalah koleksi software praktis yang fokus menyelesaikan masalah operasional nyata. Setiap project dapat berkembang menjadi deployment package, custom implementation, integration service, atau commercial product.','interest'=>'INTERESTED?','cta'=>'Butuh sistem seperti salah satu project ini?','ctaText'=>'Tersedia untuk deployment, integrasi, customization, licensing, dan further development.','commercial'=>'Commercial / License'],
+'en'=>['products'=>'Products & Projects','solutions'=>'Solutions','about'=>'About','contact'=>'Contact','hero'=>'Software systems built for real-world operations.','heroCopy'=>'Practical digital solutions for healthcare, community services, infrastructure, and automation — designed for deployment, customization, and continuous improvement.','explore'=>'Explore Products','demo'=>'Request a Demo','catalog'=>'CATALOG','catalogCopy'=>'A collection of software that can evolve into deployment packages, custom implementations, integration services, or commercial products.','all'=>'All','what'=>'WHAT I BUILD','solutionTitle'=>'From operational problem to deployable system.','health'=>'Healthcare','healthText'=>'Queue systems, dashboards, SIMRS extensions, interoperability, monitoring, and medical-imaging workflows.','community'=>'Community','communityText'=>'Digital information platforms and TV/kiosk experiences for community organizations and local services.','automation'=>'Automation','automationText'=>'Practical automation connecting web applications, devices, recognition systems, and operational workflows.','aboutTitle'=>'Independent software development with a deployment-first mindset.','aboutText'=>'Blackmevally is a collection of practical software projects focused on solving real operational problems. Each project can evolve into a deployment package, custom implementation, integration service, or commercial product.','interest'=>'INTERESTED?','cta'=>'Need a system like one of these?','ctaText'=>'Available for deployment, integration, customization, licensing, and further development.','commercial'=>'Commercial / License']][$lang];
 ?>
-<!doctype html>
-<html lang="id">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Blackmevally — software systems, healthcare solutions, digital community platforms, and practical automation.">
-<title>BLACKMEVALLY — Software Systems & Digital Solutions</title>
-<link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-<header class="site-header">
-  <div class="container nav-wrap">
-    <a class="brand" href="index.php">BLACKMEVALLY</a>
-    <nav>
-      <a href="#products">Products</a>
-      <a href="#solutions">Solutions</a>
-      <a href="#about">About</a>
-      <a class="nav-cta" href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <span class="eyebrow">SOFTWARE • SYSTEMS • AUTOMATION</span>
-      <h1>Software systems built for <span>real-world operations.</span></h1>
-      <p class="hero-copy">Practical digital solutions for healthcare, community services, infrastructure, and automation — designed to be deployed, customized, and improved.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#products">Explore Products</a>
-        <a class="btn btn-ghost" href="#contact">Request a Demo</a>
-      </div>
-    </div>
-    <div class="hero-card">
-      <div class="terminal-top"><i></i><i></i><i></i></div>
-      <div class="terminal-line"><span>$</span> portfolio --status</div>
-      <div class="terminal-line muted">10 products / projects cataloged</div>
-      <div class="terminal-line"><span>+</span> Healthcare systems</div>
-      <div class="terminal-line"><span>+</span> Community platforms</div>
-      <div class="terminal-line"><span>+</span> Automation & infrastructure</div>
-      <div class="terminal-line accent">Ready for deployment & customization.</div>
-    </div>
-  </div>
-</section>
-
-<section id="products" class="section">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <span class="eyebrow">CATALOG</span>
-        <h2>Products & Projects</h2>
-      </div>
-      <p>Open-source work and commercial-ready systems are presented separately so each project has a clear path from prototype to deployment.</p>
-    </div>
-
-    <div class="filters">
-      <button class="filter active" data-filter="all">All</button>
-      <?php foreach ($categories as $category): ?>
-        <button class="filter" data-filter="<?= htmlspecialchars(strtolower($category)) ?>"><?= htmlspecialchars($category) ?></button>
-      <?php endforeach; ?>
-    </div>
-
-    <div class="project-grid" id="projectGrid">
-      <?php foreach ($projects as $project): ?>
-      <article class="project-card" data-category="<?= htmlspecialchars(strtolower($project['category'])) ?>">
-        <div class="project-card-top">
-          <span class="project-category"><?= htmlspecialchars($project['category']) ?></span>
-          <span class="status status-<?= htmlspecialchars($statusClass($project['status'])) ?>">● <?= htmlspecialchars($project['status']) ?></span>
-        </div>
-        <h3><?= htmlspecialchars($project['title']) ?></h3>
-        <p class="project-type"><?= htmlspecialchars($project['type']) ?></p>
-        <p><?= htmlspecialchars($project['summary']) ?></p>
-        <div class="tags">
-          <?php foreach (array_slice($project['stack'], 0, 4) as $tag): ?>
-            <span><?= htmlspecialchars($tag) ?></span>
-          <?php endforeach; ?>
-        </div>
-        <div class="project-footer">
-          <span class="commercial-badge"><?= htmlspecialchars($project['availability']) ?></span>
-          <a class="arrow-link" href="project.php?slug=<?= urlencode($project['slug']) ?>">View product →</a>
-        </div>
-      </article>
-      <?php endforeach; ?>
-    </div>
-  </div>
-</section>
-
-<section id="solutions" class="section section-alt">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <span class="eyebrow">WHAT I BUILD</span>
-        <h2>From operational problem to deployable system.</h2>
-      </div>
-    </div>
-    <div class="solution-grid">
-      <div class="solution"><b>🏥 Healthcare</b><p>Queue systems, dashboards, SIMRS extensions, interoperability, monitoring, and medical-imaging workflows.</p></div>
-      <div class="solution"><b>🕌 Community</b><p>Digital information systems and TV/kiosk experiences for community organizations and local services.</p></div>
-      <div class="solution"><b>⚙️ Automation</b><p>Practical automation connecting web applications, devices, recognition systems, and operational workflows.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="about" class="section">
-  <div class="container about-grid">
-    <div>
-      <span class="eyebrow">BLACKMEVALLY</span>
-      <h2>Independent software development with a deployment-first mindset.</h2>
-    </div>
-    <div class="about-copy">
-      <p>Blackmevally is a growing collection of practical software projects focused on solving real operational problems. The portfolio is intentionally product-oriented: each system can evolve into a deployment package, custom implementation, integration service, or commercial product.</p>
-      <p>Public repositories show the engineering work where appropriate; private or commercial-oriented systems are described without exposing sensitive implementation details.</p>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="cta-section">
-  <div class="container cta-inner">
-    <div><span class="eyebrow">INTERESTED?</span><h2>Need a system like one of these?</h2><p>Available for deployment, integration, customization, and further development.</p></div>
-    <a class="btn btn-primary" href="mailto:contact@blackmevally.dev">Contact Blackmevally</a>
-  </div>
-</section>
-</main>
-
-<footer class="site-footer"><div class="container"><span>© <?= date('Y') ?> BLACKMEVALLY</span><span>PHP / XAMPP Portfolio</span></div></footer>
-<script src="assets/js/app.js"></script>
-</body>
-</html>
+<!doctype html><html lang="<?= $lang ?>"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="BLACKMEVALLY — Software Systems & Digital Solutions"><title>BLACKMEVALLY — Software Systems & Digital Solutions</title><link rel="stylesheet" href="assets/css/style.css"></head><body>
+<header class="site-header"><div class="container nav-wrap"><a class="brand" href="index.php?lang=<?= $lang ?>">BLACKMEVALLY</a><nav><a href="#products"><?= $copy['products'] ?></a><a href="#solutions"><?= $copy['solutions'] ?></a><a href="#about"><?= $copy['about'] ?></a><a href="commercial.php?lang=<?= $lang ?>"><?= $copy['commercial'] ?></a><a class="nav-cta" href="contact.php?lang=<?= $lang ?>"><?= $copy['contact'] ?></a><span class="lang-switch"><a href="?lang=id" class="<?= $lang==='id'?'active':'' ?>">ID</a><a href="?lang=en" class="<?= $lang==='en'?'active':'' ?>">EN</a></span></nav></div></header>
+<main><section class="hero"><div class="container hero-grid"><div><span class="eyebrow">SOFTWARE • SYSTEMS • AUTOMATION</span><h1><?= htmlspecialchars($copy['hero']) ?></h1><p class="hero-copy"><?= htmlspecialchars($copy['heroCopy']) ?></p><div class="hero-actions"><a class="btn btn-primary" href="#products"><?= $copy['explore'] ?></a><a class="btn btn-ghost" href="contact.php?lang=<?= $lang ?>"><?= $copy['demo'] ?></a></div><div class="hero-proof"><span>10+ systems</span><span>PHP / MySQL</span><span>Deployment-ready</span></div></div><div class="hero-card"><div class="terminal-top"><i></i><i></i><i></i></div><div class="terminal-line"><span>$</span> portfolio --status</div><div class="terminal-line muted">10 products / projects cataloged</div><div class="terminal-line"><span>+</span> Healthcare systems</div><div class="terminal-line"><span>+</span> Community platforms</div><div class="terminal-line"><span>+</span> Automation & infrastructure</div><div class="terminal-line accent">Ready for deployment & customization.</div></div></div></section>
+<section id="products" class="section"><div class="container"><div class="section-head"><div><span class="eyebrow"><?= $copy['catalog'] ?></span><h2><?= $copy['products'] ?></h2></div><p><?= htmlspecialchars($copy['catalogCopy']) ?></p></div><div class="filters"><button class="filter active" data-filter="all"><?= $copy['all'] ?></button><?php foreach($categories as $category): ?><button class="filter" data-filter="<?= htmlspecialchars(strtolower($category)) ?>"><?= htmlspecialchars($category) ?></button><?php endforeach; ?></div><div class="project-grid" id="projectGrid"><?php foreach($projects as $project): ?><article class="project-card" data-category="<?= htmlspecialchars(strtolower($project['category'])) ?>"><a class="project-thumb" href="project.php?slug=<?= urlencode($project['slug']) ?>&lang=<?= $lang ?>"><img src="assets/img/projects/<?= htmlspecialchars($project['slug']) ?>.svg" alt="<?= htmlspecialchars($project['title']) ?> interface preview" loading="lazy"><span class="thumb-overlay">View case →</span></a><div class="project-card-body"><div class="project-card-top"><span class="project-category"><?= htmlspecialchars($project['category']) ?></span><span class="status">● <?= htmlspecialchars($project['status']) ?></span></div><h3><?= htmlspecialchars($project['title']) ?></h3><p class="project-type"><?= htmlspecialchars($project['type']) ?></p><p><?= htmlspecialchars($project['summary']) ?></p><div class="tags"><?php foreach(array_slice($project['stack'],0,4) as $tag): ?><span><?= htmlspecialchars($tag) ?></span><?php endforeach; ?></div><div class="project-footer"><span class="commercial-badge"><?= htmlspecialchars($project['availability']) ?></span><a class="arrow-link" href="project.php?slug=<?= urlencode($project['slug']) ?>&lang=<?= $lang ?>">View product →</a></div></div></article><?php endforeach; ?></div></div></section>
+<section id="solutions" class="section section-alt"><div class="container"><div class="section-head"><div><span class="eyebrow"><?= $copy['what'] ?></span><h2><?= $copy['solutionTitle'] ?></h2></div></div><div class="solution-grid"><div class="solution"><b>🏥 <?= $copy['health'] ?></b><p><?= $copy['healthText'] ?></p></div><div class="solution"><b>🕌 <?= $copy['community'] ?></b><p><?= $copy['communityText'] ?></p></div><div class="solution"><b>⚙️ <?= $copy['automation'] ?></b><p><?= $copy['automationText'] ?></p></div></div></div></section>
+<section id="about" class="section"><div class="container about-grid"><div><span class="eyebrow">BLACKMEVALLY</span><h2><?= $copy['aboutTitle'] ?></h2></div><div class="about-copy"><p><?= $copy['aboutText'] ?></p></div></div></section>
+<section id="contact" class="cta-section"><div class="container cta-inner"><div><span class="eyebrow"><?= $copy['interest'] ?></span><h2><?= $copy['cta'] ?></h2><p><?= $copy['ctaText'] ?></p></div><a class="btn btn-primary" href="contact.php?lang=<?= $lang ?>"><?= $copy['contact'] ?> →</a></div></section></main><footer class="site-footer"><div class="container"><span>© <?= date('Y') ?> BLACKMEVALLY</span><span>PHP / XAMPP • <a href="commercial.php?lang=<?= $lang ?>">Commercial / License</a></span></div></footer><script src="assets/js/app.js"></script></body></html>
