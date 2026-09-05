@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)http://localhost/rt-rw-digital/auth/login.php -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Portal Digital RT/RW</title>
+<link href="./Login - Portal Digital RT_RW_files/bootstrap.min.css" rel="stylesheet">
+<link href="./Login - Portal Digital RT_RW_files/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="./Login - Portal Digital RT_RW_files/app.css">
+</head>
+<body class="login-page">
+<div class="login-card">
+    <div class="text-center mb-4">
+        <div class="login-logo"><i class="bi bi-wallet2"></i></div>
+        <h3 class="fw-bold mt-3">Portal Digital RT/RW</h3>
+        <div class="text-muted">Sistem Keuangan RT/RW</div>
+    </div>
+
+    
+    <form method="POST" autocomplete="on">
+        <input type="hidden" name="csrf_token" value="2ef1cfba87811f889e3f6df363fa217b9876abe2c03ad293a326981e00bfa38d">
+        <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input type="text" name="username" class="form-control" autocomplete="username" autofocus="" required="">
+        </div>
+
+        <div class="mb-4">
+            <label class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" autocomplete="current-password" required="">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">
+            <i class="bi bi-box-arrow-in-right"></i>
+            Login
+        </button>
+    </form>
+</div>
+
+
+</body></html>

@@ -1,0 +1,294 @@
+:root {
+    --sidebar-width: 250px;
+    --primary: #198754;
+    --bg: #f5f7f9;
+    --border: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+.app-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    background: #fff;
+    border-right: 1px solid var(--border);
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.sidebar-brand {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.brand-icon,
+.login-logo {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    color: white;
+    font-size: 22px;
+}
+
+.brand-title {
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.sidebar-brand small {
+    color: #6b7280;
+}
+
+.sidebar-menu {
+    padding: 15px 10px;
+}
+
+.menu-label {
+    padding: 15px 12px 7px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #9ca3af;
+    letter-spacing: .08em;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 13px;
+    margin-bottom: 3px;
+    border-radius: 8px;
+    color: #4b5563;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.menu-item:hover,
+.menu-item.active {
+    background: #ecfdf3;
+    color: #198754;
+}
+
+.menu-item.active {
+    font-weight: 600;
+}
+
+.menu-item.active i {
+    color: #198754;
+}
+
+.menu-item i {
+    width: 20px;
+    text-align: center;
+}
+
+.main-wrapper {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    min-height: 100vh;
+}
+
+.navbar-app {
+    height: 75px;
+    background: white;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.content {
+    padding: 25px;
+}
+
+.page-header {
+    margin-bottom: 25px;
+}
+
+.page-header h2 {
+    margin: 0;
+    font-weight: 700;
+}
+
+.page-header p {
+    color: #6b7280;
+    margin: 5px 0 0;
+}
+
+.stat-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 100%;
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: #ecfdf5;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+}
+
+.stat-label {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.stat-value {
+    font-size: 21px;
+    font-weight: 700;
+    margin-top: 3px;
+}
+
+.card-app {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.card-header-app {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header-app h5 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.chart-placeholder {
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #9ca3af;
+}
+
+.chart-placeholder i {
+    font-size: 45px;
+}
+
+.empty-state {
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    gap: 10px;
+}
+
+.empty-state i {
+    font-size: 40px;
+}
+
+.footer {
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    color: #9ca3af;
+    font-size: 12px;
+}
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f5f7f9;
+    padding: 20px;
+}
+
+.login-card {
+    background: white;
+    width: 100%;
+    max-width: 420px;
+    padding: 35px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    box-shadow: 0 15px 40px rgba(0,0,0,.06);
+}
+
+.login-logo {
+    margin: auto;
+}
+
+.form-control {
+    min-height: 45px;
+}
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        transform: translateX(-100%);
+        transition: .25s;
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+
+    .main-wrapper {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .navbar-app {
+        padding: 0 15px;
+    }
+
+}

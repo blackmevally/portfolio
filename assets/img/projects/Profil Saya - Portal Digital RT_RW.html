@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://localhost/rt-rw-digital/profil/ -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="csrf-token" content="10da6762f5186b15d1e98ba2d7c60ef6076c3e97b1bde016168c65cb14efd782">
+
+<title>
+    Profil Saya    -
+    Portal Digital RT/RW</title>
+
+<link href="./Profil Saya - Portal Digital RT_RW_files/bootstrap.min.css" rel="stylesheet">
+
+<link href="./Profil Saya - Portal Digital RT_RW_files/bootstrap-icons.css" rel="stylesheet">
+
+<link rel="stylesheet" href="./Profil Saya - Portal Digital RT_RW_files/app.css">
+
+</head>
+
+<body>
+
+<div class="app-wrapper">
+
+<aside class="sidebar">
+<div class="sidebar-brand"><div class="brand-icon"><i class="bi bi-wallet2"></i></div><div><div class="brand-title">PORTAL DIGITAL</div><small>RT 03 / RW 04 </small></div></div>
+<div class="sidebar-menu">
+<div class="menu-label">UTAMA</div>
+<a href="http://localhost/rt-rw-digital/dashboard/" class="menu-item "><i class="bi bi-grid-1x2"></i><span>Dashboard</span></a>
+<div class="menu-label">AKUN</div>
+<a href="http://localhost/rt-rw-digital/profil/" class="menu-item active"><i class="bi bi-person-circle"></i><span>Profil Saya</span></a>
+<a href="http://localhost/rt-rw-digital/tagihan/" class="menu-item "><i class="bi bi-receipt"></i><span>Tagihan Saya</span></a>
+<a href="http://localhost/rt-rw-digital/jimpitan/v2.php" class="menu-item "><i class="bi bi-coin"></i><span>Jimpitan</span></a>
+<a href="http://localhost/rt-rw-digital/jimpitan/saldo.php" class="menu-item "><i class="bi bi-wallet2"></i><span>Saldo Jimpitan</span></a>
+<form method="POST" action="http://localhost/rt-rw-digital/auth/logout.php" class="m-0" onsubmit="return confirm(&#39;Yakin ingin keluar dari aplikasi?&#39;)">
+<input type="hidden" name="csrf_token" value="10da6762f5186b15d1e98ba2d7c60ef6076c3e97b1bde016168c65cb14efd782"><button type="submit" class="menu-item border-0 bg-transparent w-100 text-start" style="cursor:pointer"><i class="bi bi-box-arrow-right text-danger"></i><span class="text-danger">Logout</span></button>
+</form>
+<div class="menu-label">ADMINISTRASI</div><a href="http://localhost/rt-rw-digital/admin/users/" class="menu-item "><i class="bi bi-person-gear"></i><span>Manajemen Pengguna</span></a><div class="menu-label">DATA WARGA</div>
+<a href="http://localhost/rt-rw-digital/kk/" class="menu-item "><i class="bi bi-house"></i><span>Data KK</span></a>
+<a href="http://localhost/rt-rw-digital/warga/" class="menu-item "><i class="bi bi-people"></i><span>Data Warga</span></a>
+<a href="http://localhost/rt-rw-digital/rumah/" class="menu-item "><i class="bi bi-building"></i><span>Data Rumah</span></a>
+<div class="menu-label">INVENTARIS</div>
+<a href="http://localhost/rt-rw-digital/inventaris/" class="menu-item "><i class="bi bi-box-seam"></i><span>Inventaris RT</span></a>
+<a href="http://localhost/rt-rw-digital/inventaris/peminjaman.php" class="menu-item "><i class="bi bi-arrow-left-right"></i><span>Peminjaman &amp; Pengembalian</span></a>
+<a href="http://localhost/rt-rw-digital/inventaris/kerusakan.php" class="menu-item "><i class="bi bi-tools"></i><span>Kerusakan Inventaris</span></a>
+<div class="menu-label">KEUANGAN</div>
+<a href="http://localhost/rt-rw-digital/iuran/" class="menu-item "><i class="bi bi-receipt"></i><span>Master Iuran Warga</span></a>
+<a href="http://localhost/rt-rw-digital/tagihan/kelola.php" class="menu-item "><i class="bi bi-cash-stack"></i><span>Kelola Tagihan Warga</span></a>
+<a href="http://localhost/rt-rw-digital/jimpitan/saldo/warga.php" class="menu-item "><i class="bi bi-wallet2"></i><span>Saldo Jimpitan Warga</span></a>
+<a href="http://localhost/rt-rw-digital/pemasukan/" class="menu-item "><i class="bi bi-arrow-down-circle"></i><span>Pemasukan</span></a>
+<a href="http://localhost/rt-rw-digital/pengeluaran/" class="menu-item "><i class="bi bi-arrow-up-circle"></i><span>Pengeluaran</span></a>
+<a href="http://localhost/rt-rw-digital/kas/" class="menu-item "><i class="bi bi-journal-text"></i><span>Buku Kas</span></a>
+<div class="menu-label">LAPORAN</div>
+<a href="http://localhost/rt-rw-digital/laporan/keuangan.php" class="menu-item "><i class="bi bi-bar-chart"></i><span>Laporan Keuangan</span></a>
+<a href="http://localhost/rt-rw-digital/laporan/iuran.php" class="menu-item "><i class="bi bi-file-earmark-text"></i><span>Laporan Iuran</span></a>
+<a href="http://localhost/rt-rw-digital/laporan/jimpitan.php" class="menu-item "><i class="bi bi-calendar3"></i><span>Laporan Jimpitan</span></a>
+<a href="http://localhost/rt-rw-digital/laporan/inventaris.php" class="menu-item "><i class="bi bi-box-seam"></i><span>Laporan Inventaris</span></a>
+</div></aside>
+<div class="main-wrapper">
+
+<nav class="navbar-app">
+
+    <button type="button" class="btn btn-light" id="sidebarToggle">
+        <i class="bi bi-list"></i>
+    </button>
+
+    <div class="navbar-right">
+
+        <div class="text-end me-3">
+
+            <div class="fw-semibold">
+                Administrator            </div>
+
+            <small class="text-muted">
+                superadmin            </small>
+
+        </div>
+
+        <form method="POST" action="http://localhost/rt-rw-digital/auth/logout.php" class="d-inline" onsubmit="return confirm(&#39;Keluar dari aplikasi?&#39;);">
+            <input type="hidden" name="csrf_token" value="10da6762f5186b15d1e98ba2d7c60ef6076c3e97b1bde016168c65cb14efd782">            <button type="submit" class="btn btn-outline-danger btn-sm" title="Logout">
+                <i class="bi bi-box-arrow-right"></i>
+            </button>
+        </form>
+
+    </div>
+
+</nav>
+<main class="content">
+
+
+<script>
+/*
+ * Semua form POST pada halaman aplikasi mendapatkan token CSRF secara
+ * otomatis. Endpoint tetap melakukan validasi token di server melalui
+ * config/app.php, sehingga token tidak hanya bergantung pada JavaScript.
+ */
+document.addEventListener('DOMContentLoaded', function () {
+    const meta = document.querySelector('meta[name="csrf-token"]');
+    if (!meta) return;
+
+    const token = meta.getAttribute('content');
+    if (!token) return;
+
+    document.querySelectorAll('form').forEach(function (form) {
+        const method = (form.getAttribute('method') || 'get').toLowerCase();
+        if (method !== 'post') return;
+
+        if (form.querySelector('input[name="csrf_token"]')) return;
+
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'csrf_token';
+        input.value = token;
+        form.appendChild(input);
+    });
+});
+</script>
+<style>
+.profile-avatar{width:96px;height:96px;object-fit:cover;border:3px solid #198754}.pstat{border:1px solid #e9ecef;border-radius:14px;padding:15px;height:100%;background:#fff}.pstat .v{font-size:1.35rem;font-weight:700}.queue-card{border:1px solid #e9ecef;border-radius:14px;padding:15px;background:#fff}.queue-card.pending{border-color:#ffc107;background:#fffaf0}.queue-card.unsubmitted{border-color:#fd7e14;background:#fff8f0}.queue-card.accepted{border-color:#198754;background:#f3fbf6}.queue-table td,.queue-table th{vertical-align:middle}
+</style>
+<div class="page-header d-flex justify-content-between align-items-center flex-wrap gap-3"><div><h2 class="mb-1"><i class="bi bi-person-circle me-2"></i>Profil Saya</h2><p class="mb-0">Informasi akun dan pusat status Jimpitan V2.</p></div><a href="http://localhost/rt-rw-digital/jimpitan/v2.php" class="btn btn-success"><i class="bi bi-coin me-1"></i> Buka Jimpitan</a></div>
+
+<div class="row g-4 mb-4"><div class="col-xl-4"><div class="card-app h-100"><div class="card-header-app"><h5 class="mb-0"><i class="bi bi-person me-1"></i> Profil Pengguna</h5></div><div class="p-4 text-center"><div class="mx-auto mb-3 rounded-circle d-flex align-items-center justify-content-center" style="width:96px;height:96px;background:#198754;color:#fff;font-size:38px;font-weight:700;">A</div><h4 class="mb-1">Administrator</h4><div class="mb-3"><span class="badge text-bg-secondary">superadmin</span></div><span class="badge rounded-pill text-bg-success">Aktif</span><div class="text-muted small mt-3">Administrator sistem</div></div></div></div><div class="col-xl-8"><div class="card-app h-100"><div class="card-header-app"><h5 class="mb-0"><i class="bi bi-person-vcard me-1"></i> Informasi Akun</h5></div><div class="p-4"><div class="row g-4"><div class="col-md-6"><div class="text-muted small">Username</div><div class="fw-semibold mt-1">admin</div></div><div class="col-md-6"><div class="text-muted small">Role</div><div class="fw-semibold mt-1">superadmin</div></div><div class="col-md-6"><div class="text-muted small">Email</div><div class="fw-semibold mt-1">-</div></div><div class="col-md-6"><div class="text-muted small">No. HP</div><div class="fw-semibold mt-1">-</div></div><div class="col-md-6"><div class="text-muted small">Login Terakhir</div><div class="fw-semibold mt-1">-</div></div><div class="col-md-6"><div class="text-muted small">Terdaftar</div><div class="fw-semibold mt-1">-</div></div></div></div></div></div></div>
+
+<div class="card-app mb-4"><div class="card-header-app d-flex justify-content-between align-items-center flex-wrap gap-2"><div><h5 class="mb-1"><i class="bi bi-coin me-1"></i> Jimpitan V2 — Aktivitas Saya</h5><small class="text-muted">Semua aktivitas jimpitan sekarang terpusat di Jimpitan V2.</small></div></div><div class="p-4"><div class="row g-3"><div class="col-6 col-md-3"><div class="pstat"><div class="text-muted small">KK dicatat</div><div class="v">0</div></div></div><div class="col-6 col-md-3"><div class="pstat"><div class="text-muted small">Lunas</div><div class="v text-success">0</div></div></div><div class="col-6 col-md-3"><div class="pstat"><div class="text-muted small">Terkumpul</div><div class="v text-success">Rp 0</div></div></div><div class="col-6 col-md-3"><div class="pstat"><div class="text-muted small">Pribadi hari ini</div><div class="v">Rp 0</div></div></div></div><div class="row g-3 mt-1"><div class="col-md-4"><div class="queue-card unsubmitted"><div class="small text-muted">Fisik warga belum setor</div><div class="fw-bold fs-5">Rp 0</div></div></div><div class="col-md-4"><div class="queue-card unsubmitted"><div class="small text-muted">Pribadi belum setor</div><div class="fw-bold fs-5">Rp 0</div></div></div><div class="col-md-4"><div class="queue-card pending"><div class="small text-muted">Status setoran terakhir</div><div class="fw-bold">Belum Ada</div></div></div></div></div></div>
+
+<div class="card-app mb-4"><div class="card-header-app"><div><h5 class="mb-1"><i class="bi bi-inbox me-1"></i> Antrean Jimpitan V2</h5><small class="text-muted">Bendahara melihat uang yang belum diajukan dan setoran yang sudah diajukan menunggu diterima.</small></div></div><div class="p-4">
+<div class="row g-3 mb-4"><div class="col-md-4"><div class="pstat"><div class="text-muted small">Belum disetor</div><div class="v text-warning">Rp 0</div><small>0 petugas</small></div></div><div class="col-md-4"><div class="pstat"><div class="text-muted small">Menunggu diterima</div><div class="v text-warning">Rp 0</div><small>0 setoran</small></div></div><div class="col-md-4"><div class="pstat"><div class="text-muted small">Terakhir diterima</div><div class="v text-success">Rp 1.000</div></div></div></div>
+
+<div class="queue-card unsubmitted mb-4"><div class="fw-semibold mb-1"><i class="bi bi-hourglass-split me-1"></i> Belum Disetor</div><div class="small text-muted mb-3">Uang fisik sudah dicatat petugas, tetapi belum diajukan sebagai setoran. Bendahara belum dapat menerima sebelum petugas mengajukan.</div><div class="alert alert-success mb-0">Tidak ada uang fisik yang belum diajukan.</div></div>
+
+<div class="queue-card pending mb-4"><div class="fw-semibold mb-1"><i class="bi bi-clock-history me-1"></i> Sudah Setor — Menunggu Diterima</div><div class="small text-muted mb-3">Setoran sudah diajukan petugas. Bendahara dapat langsung menerima dari sini. Setoran milik bendahara sendiri tidak ditampilkan sebagai antrean penerimaan.</div><div class="alert alert-success mb-0">Tidak ada setoran yang menunggu diterima.</div></div>
+
+<div class="queue-card accepted"><div class="fw-semibold mb-1"><i class="bi bi-check-circle me-1"></i> Setoran Terakhir Diterima</div><div class="small text-muted mb-3">Riwayat ringkas penerimaan oleh bendahara.</div><div class="table-responsive"><table class="table table-hover queue-table mb-0"><thead><tr><th>Setoran</th><th>Petugas</th><th>Nominal</th><th>Diterima</th><th>Bendahara</th></tr></thead><tbody><tr><td>#6</td><td>Administrator</td><td class="fw-bold text-success">Rp 1.000</td><td>04-09-2026 19:04 WIB</td><td>Lukman</td></tr><tr><td>#5</td><td>Endah Soekendriati</td><td class="fw-bold text-success">Rp 500</td><td>02-09-2026 15:21 WIB</td><td>Lukman</td></tr></tbody></table></div></div>
+</div></div>
+
+<div class="card-app mb-4"><div class="card-header-app"><h5 class="mb-0"><i class="bi bi-shield-check me-1"></i> Hak Akses Jimpitan</h5></div><div class="p-4"><div class="row g-3"><div class="col-md-4"><div class="border rounded-3 p-3 h-100"><i class="bi bi-coin text-success fs-4"></i><div class="fw-semibold mt-2">Jimpitan V2</div><small class="text-muted">Mencatat jimpitan warga dan jimpitan pribadi dari satu modul.</small></div></div><div class="col-md-4"><div class="border rounded-3 p-3 h-100"><i class="bi bi-send-check text-primary fs-4"></i><div class="fw-semibold mt-2">Setoran</div><small class="text-muted">Uang fisik yang belum disetor dapat diajukan langsung dari Jimpitan V2.</small></div></div><div class="col-md-4"><div class="border rounded-3 p-3 h-100"><i class="bi bi-wallet2 text-warning fs-4"></i><div class="fw-semibold mt-2">Penerimaan</div><small class="text-muted">Bendahara menerima antrean setoran dari Profil Saya dan otomatis membukukannya ke kas.</small></div></div></div></div></div>
+</main>
+
+<div class="card-app mb-4">
+ <div class="card-header-app d-flex justify-content-between align-items-center flex-wrap gap-2">
+  <div><h5 class="mb-1"><i class="bi bi-lightning-charge me-1"></i>Setoran Jimpitan V2 — Warga</h5><small class="text-muted">Khusus hasil keliling warga. Jimpitan pribadi tidak masuk antrean ini.</small></div>
+   </div>
+ <div class="p-4">
+ <div class="alert alert-success mb-0"><i class="bi bi-check-circle me-1"></i>Tidak ada Setoran Jimpitan V2 warga yang menunggu.</div> </div>
+</div>
+
+<footer class="footer">
+
+    <span>
+        Portal Digital RT/RW        v1.0.0    </span>
+
+    <span>
+        © 2026    </span>
+
+</footer>
+
+</div>
+
+</div>
+
+<script src="./Profil Saya - Portal Digital RT_RW_files/bootstrap.bundle.min.js.download"></script>
+
+<script src="./Profil Saya - Portal Digital RT_RW_files/app.js.download"></script>
+
+
+
+</body></html>

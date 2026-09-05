@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://localhost/masjiddigital/admin/index.php -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin — Masjid Digital</title>
+<style>
+:root{--bg:#f3f6f4;--panel:#fff;--text:#16251e;--muted:#617068;--border:#dce5df;--nav:#e7f2ec;--navText:#176542;--okBg:#e8f7ee;--okText:#176b40;--dangerBg:#fdeaea;--dangerText:#8a2727;--primary:#19764a;--field:#fbfdfc;--radius:16px;--shadow:0 4px 20px rgba(0,0,0,.04)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}.wrap{max-width:1100px;margin:0 auto;padding:28px}.head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:16px}.head h1{margin:0;font-size:30px;line-height:1.2}.badge{display:inline-flex;align-items:center;min-height:32px;padding:7px 12px;border-radius:999px;background:#dff4e8;color:var(--okText);font-size:13px;white-space:nowrap}.nav{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 22px}.nav a{display:inline-flex;align-items:center;padding:10px 13px;border-radius:10px;background:var(--nav);color:var(--navText);text-decoration:none;font-weight:800}.nav a:hover{filter:brightness(.98)}.nav a.logout{background:var(--dangerBg);color:var(--dangerText)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}.full{grid-column:1/-1}.card h2{margin:0 0 14px;font-size:21px}.card p{margin:10px 0 0}.hint{color:var(--muted);font-size:14px;line-height:1.5}label{display:block;font-weight:700;margin:0 0 7px}input,textarea,select{width:100%;border:1px solid #cbd8d0;border-radius:10px;padding:11px;font:inherit;background:var(--field);color:var(--text)}textarea{min-height:115px;resize:vertical}.check{display:flex;gap:9px;align-items:center;margin:0 0 15px}.check input{width:auto}.actions{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:20px}.btn{border:0;border-radius:10px;padding:12px 18px;background:var(--primary);color:#fff;font-weight:800;cursor:pointer}.btn:hover{filter:brightness(.96)}.link{color:var(--primary);text-decoration:none;font-weight:700}.notice,.error{padding:12px;border-radius:10px;margin-bottom:18px}.notice{background:var(--okBg);color:var(--okText)}.error{background:var(--dangerBg);color:var(--dangerText)}@media(max-width:750px){.wrap{padding:16px}.head{align-items:flex-start;flex-direction:column}.head h1{font-size:26px}.grid{grid-template-columns:1fr}.full{grid-column:auto}.actions{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="head"><h1>🕌 Admin Masjid Digital</h1><span class="badge">Local • Tanpa Database</span></header>
+<nav class="nav"><a href="http://localhost/masjiddigital/admin/settings.php">📍 Lokasi &amp; Metode</a><a href="http://localhost/masjiddigital/admin/prayer.php">🕐 Jadwal Shalat</a><a href="http://localhost/masjiddigital/admin/prayer_special.php">🌙 Jumat &amp; Ramadhan</a><a href="http://localhost/masjiddigital/admin/hijri.php">🌙 Kalender Hijriah</a><a href="http://localhost/masjiddigital/admin/islamic_events.php">☪ Event Islam</a><a href="http://localhost/masjiddigital/admin/finance.php">💰 Keuangan</a><a href="http://localhost/masjiddigital/admin/finance_report.php">📊 Laporan</a><a href="http://localhost/masjiddigital/admin/finance_backup.php">💾 Backup</a><a href="http://localhost/masjiddigital/admin/audit.php">🧾 Audit</a><a href="http://localhost/masjiddigital/admin/media.php">🖼️ Media</a><a href="http://localhost/masjiddigital/admin/audio.php">🔊 Audio</a><a href="http://localhost/masjiddigital/display/" target="_blank" rel="noopener">📺 TV Display</a><a class="logout" href="http://localhost/masjiddigital/admin/logout.php">🚪 Logout</a></nav>
+<form method="post"><input type="hidden" name="csrf_token" value="e69f6fe73ab610529c4c4d8a299a19542c11e8b4df935dd701eba124f260cde2">
+<div class="grid">
+<section class="card"><h2>Pengumuman</h2><label for="announcement">Pesan utama</label><textarea id="announcement" name="announcement">Selamat datang di Masjid Digital</textarea></section>
+<section class="card"><h2>Running Text</h2><label for="running_text">Pesan berjalan</label><textarea id="running_text" name="running_text">Mohon menjaga kebersihan, ketenangan, dan merapikan shaf.</textarea></section>
+<section class="card full"><h2>Video Display</h2><label class="check"><input type="checkbox" name="video_enabled"> Aktifkan video</label><label for="video_src">Path/URL video</label><input id="video_src" name="video_src" value="" placeholder="assets/media/kajian.mp4"><p class="hint">Upload dan pengelolaan video/gambar dilakukan melalui menu Media.</p></section>
+</div>
+<div class="actions"><a class="link" href="http://localhost/masjiddigital/display/" target="_blank" rel="noopener">Buka TV Display ↗</a><button class="btn" type="submit">Simpan Pengaturan</button></div>
+</form>
+</div>
+
+
+</body></html>

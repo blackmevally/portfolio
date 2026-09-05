@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://localhost/dashboard_ss/web/ -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dashboard SATUSEHAT</title>
+  <link rel="stylesheet" href="./Dashboard SATUSEHAT_files/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div><h1>Dashboard SATUSEHAT</h1><p>Monitoring aliran data — SIMRS Khanza → SATUSEHAT</p></div>
+    <div><span id="environment" class="pill">ENV: SANDBOX</span> <span class="pill">MONITORING ONLY</span> <span id="health" class="pill bad">PIPELINE CRITICAL</span></div>
+  </header>
+  <main>
+    <section class="notice">
+      <strong>Mode aman aktif.</strong> Dashboard membaca seluruh resource control-plane, state processing, dependency, response dan error. Tidak ada auto-send, auto-create, atau perubahan data Khanza/SATUSEHAT dari UI.
+    </section>
+    <section id="stats" class="stats"><div class="stat"><b>10</b><span>DISCOVERED</span></div><div class="stat"><b>0</b><span>MAPPED</span></div><div class="stat"><b>0</b><span>READY</span></div><div class="stat"><b>0</b><span>PROCESSING</span></div><div class="stat"><b>1</b><span>SUCCESS</span></div><div class="stat"><b>0</b><span>RETRY</span></div><div class="stat"><b>16</b><span>FAILED</span></div><div class="stat"><b>1</b><span>BLOCKED</span></div><div class="stat"><b>0</b><span>WAITING_DEPENDENCY</span></div></section>
+    <section class="panel">
+      <div class="panel-head"><div><h2>Aliran Data</h2><p id="flowMsg">Kritis: 17 gagal/blocked, 0 processing macet.</p></div><span id="lastUpdate" class="muted">Snapshot 5/9/2026, 12.10.11</span></div>
+      <div id="flowStats" class="stats"><div class="stat"><b>28</b><span>Total resource</span></div><div class="stat"><b>1</b><span>SUCCESS</span></div><div class="stat"><b>17</b><span>Gagal/blocked</span></div><div class="stat"><b>0</b><span>Aktif</span></div><div class="stat"><b>0</b><span>Processing macet</span></div><div class="stat"><b>0</b><span>Terpetakan IHS</span></div><div class="stat"><b>3</b><span>Response 2xx</span></div></div>
+      <div class="table-wrap"><table><thead><tr><th>Resource</th><th>Total</th><th>Success</th><th>Gagal</th><th>Aktif</th><th>Macet &gt;10m</th><th>Aktivitas terakhir</th></tr></thead><tbody id="resourceTypes"><tr>
+    <td>Encounter</td><td>1</td><td>0</td>
+    <td>1</td><td>0</td><td>0</td><td>2026-09-03T02:16:23.247Z</td>
+  </tr><tr>
+    <td>Patient</td><td>27</td><td>1</td>
+    <td>16</td><td>0</td><td>0</td><td>2026-09-05T02:59:17.220Z</td>
+  </tr></tbody></table></div>
+    </section>
+    <section class="toolbar">
+      <select id="type"><option value="">Semua resource</option><option>Patient</option><option>Practitioner</option><option>Organization</option><option>Location</option><option>Encounter</option></select>
+      <select id="status"><option value="">Semua status</option><option>DISCOVERED</option><option>MAPPED</option><option>READY</option><option>PROCESSING</option><option>SUCCESS</option><option>RETRY</option><option>FAILED</option><option>BLOCKED</option><option>WAITING_DEPENDENCY</option></select>
+      <button id="refresh">Refresh</button>
+    </section>
+    <section class="panel patient-panel">
+      <div class="panel-head"><div><h2>Patient IHS</h2><p>Persiapan alur Patient: Khanza → mapping → queue → lookup SATUSEHAT.</p></div><button id="patientSearchBtn">Cari</button></div>
+      <div class="patient-search"><input id="patientSearch" placeholder="No. RM Khanza" autocomplete="off"><span id="patientMsg"></span></div>
+      <div id="patientCard" class="patient-card hidden"></div>
+    </section>
+    <section class="panel"><h2>Resource Monitoring</h2><div class="table-wrap"><table><thead><tr><th>ID</th><th>Type</th><th>Source Key</th><th>Status</th><th>Attempt</th><th>SATUSEHAT ID</th><th>Updated</th><th></th></tr></thead><tbody id="resources"><tr>
+      <td>28</td><td>Patient</td><td>112384</td>
+      <td><span class="status FAILED">FAILED</span></td>
+      <td>1/5</td><td>-</td>
+      <td>2026-09-03T08:01:36.074Z</td><td><span class="review-badge">Review manual</span> <button onclick="showDetail(28)">Detail</button></td>
+    </tr><tr>
+      <td>27</td><td>Patient</td><td>000060</td>
+      <td><span class="status FAILED">FAILED</span></td>
+      <td>1/5</td><td>-</td>
+      <td>2026-09-03T08:01:37.953Z</td><td><span class="review-badge">Review manual</span> <button onclick="showDetail(27)">Detail</button></td>
+    </tr><tr>
+      <td>26</td><td>Patient</td><td>000059</td>
+      <td><span class="status FAILED">FAILED</span></td>
+      <td>1/5</td><td>-</td>
+      <td>2026-09-03T08:01:39.024Z</td><td><span class="review-badge">Review manual</span> <button onclick="showDetail(26)">Detail</button></td>
+    </tr><tr>
+      <td>25</td><td>Patient</td><td>000058</td>
+      <td><span class="status FAILED">FAILED</span></td>
+      <td>1/5</td><td>-</td>
+      <td>2026-09-03T08:01:40.118Z</td><td><span class="review-badge">Review manual</span> <button onclick="showDetail(25)">Detail</button></td>
+    </tr><tr>
+      <td>24</td><td>Patient</td><td>000057</td>
+      <td><span class="status FAILED">FAILED</span></td>
+      <td>2/5</td><td>-</td>
+      <td>2026-09-05T02:59:17.220Z</td><td><span class="review-badge">Review manual</span> <button onclick="showDetail(24)">Detail</button></td>
+    </tr><tr>
+      <td>23</td><td>Patient</td><td>000055</td>
+      <td><span class="status DISCOVERED">DISCOVERED</span></td>
+      <td>0/5</td><td>-</td>
+      <td>2026-09-03T03:03:08.557Z</td><td><button onclick="patientLookup(&#39;000055&#39;)">🔍 Siapkan Patient</button> <button onclick="showDetail(23)">Detail</button></td>
+    </tr><tr>
+      <td>22</td><td>Patient</td><td>000054</td>
+      <td><span class="status DISCOVERED">DISCOVERED</span></td>
+      <td>0/5</td><td>-</td>
+      <td>2026-09-03T03:03:08.557Z</td><td><button onclick="patientLookup(&#39;000054&#39;)">🔍 Siapkan Patient</button> <button onclick="showDetail(22)">Detail</button></td>
+    </tr><tr>
+      <td>21</td><td>Patient</td><td>000053</td>
+      <td><span class="status DISCOVERED">DISCOVERED</span></td>
+      <td>0/5</td><td>-</td>
+      <td>2026-09-03T03:03:08.557Z</td><td><button onclick="patientLookup(&#39;000053&#39;)">🔍 Siapkan Patient</button> <button onclick="showDetail(21)">Detail</button></td>
+    </tr><tr>
+      <td>20</td><td>Patient</td><td>000052</td>
+      <td><span class="status DISCOVERED">DISCOVERED</span></td>
+      <td>0/5</td><td>-</td>
+      <td>2026-09-03T03:03:08.557Z</td><td><button onclick="patientLookup(&#39;000052&#39;)">🔍 Siapkan Patient</button> <button onclick="showDetail(20)">Detail</button></td>
+    </tr><tr>
+      <td>19</td><td>Patient</td><td>000051</td>
+      <td><span class="status DISCOVERED">DISCOVERED</span></td>
+      <td>0/5</td><td>-</td>
+      <td>2026-09-03T03:03:08.557Z</td><td><button onclick="patientLookup(&#39;000051&#39;)">🔍 Siapkan Patient</button> <button onclick="showDetail(19)">Detail</button></td>
+    </tr><tr>
+      <td>18</td><td>Patient</td><td>000048</td>
+      <td><span class="status DISCOVERED">DISCOVERED</span></td>
+      <td>0/5</td><td>-</td>
+      <td>2026-09-03T03:03:08.557Z</td><td><button onclick="patientLookup(&#39;000048&#39;)">🔍 Siapkan Patient</button> <button onclick="showDetail(18)">Detail</button></td>
+    </tr><tr>
+      <td>17</td><td>Patient</td><td>000023</td>
+      <td><span class="status DISCOVERED">DISCOVERED</span></td>
+      <td>0/5</td><td>-</td>
+      <td>2026-09-03T03:03:08.557Z</td><td><button onclick="patientLookup(&#39;000023&#39;)">🔍 Siapkan Patient</button> <button onclick="showDetail(17)">Detail</button></td>
+    </tr><tr>
+      <td>16</td><td>Patient</td><td>000022</td>
+      <td><span class="status DISCOVERED">DISCOVERED</span></td>
+      <td>0/5</td><td>-</td>
+      <td>2026-09-03T03:03:08.557Z</td><td><button onclick="patientLookup(&#39;000022&#39;)">🔍 Siapkan Patient</button> <button onclick="showDetail(16)">Detail</button></td>
+    </tr><tr>
+      <td>15</td><td>Patient</td><td>000013</td>
+      <td><span class="status FAILED">FAILED</span></td>
+      <td>2/5</td><td>-</td>
+      <td>2026-09-03T08:31:39.977Z</td><td><span class="review-badge">Review manual</span> <button onclick="showDetail(15)">Detail</button></td>
+    </tr><tr>
+      <td>14</td><td>Patient</td><td>000006</td>
+      <td><span class="status DISCOVERED">DISCOVERED</span></td>
+      <td>0/5</td><td>-</td>
+      <td>2026-09-03T03:03:08.557Z</td><td><button onclick="patientLookup(&#39;000006&#39;)">🔍 Siapkan Patient</button> <button onclick="showDetail(14)">Detail</button></td>
+    </tr><tr>
+      <td>13</td><td>Patient</td><td>000002</td>
+      <td><span class="status FAILED">FAILED</span></td>
+      <td>2/5</td><td>-</td>
+      <td>2026-09-03T08:32:24.123Z</td><td><span class="review-badge">Review manual</span> <button onclick="showDetail(13)">Detail</button></td>
+    </tr><tr>
+      <td>12</td><td>Patient</td><td>-</td>
+      <td><span class="status DISCOVERED">DISCOVERED</span></td>
+      <td>0/5</td><td>-</td>
+      <td>2026-09-03T03:03:08.557Z</td><td><button onclick="patientLookup(&#39;-&#39;)">🔍 Siapkan Patient</button> <button onclick="showDetail(12)">Detail</button></td>
+    </tr><tr>
+      <td>11</td><td>Patient</td><td>TEST-UNKNOWN</td>
+      <td><span class="status FAILED">FAILED</span></td>
+      <td>1/5</td><td>-</td>
+      <td>2026-09-03T02:25:23.584Z</td><td><span class="review-badge">Review manual</span> <button onclick="showDetail(11)">Detail</button></td>
+    </tr><tr>
+      <td>10</td><td>Patient</td><td>TEST-500</td>
+      <td><span class="status FAILED">FAILED</span></td>
+      <td>1/5</td><td>-</td>
+      <td>2026-09-03T02:25:23.584Z</td><td><span class="review-badge">Review manual</span> <button onclick="showDetail(10)">Detail</button></td>
+    </tr><tr>
+      <td>9</td><td>Patient</td><td>TEST-429</td>
+      <td><span class="status FAILED">FAILED</span></td>
+      <td>1/5</td><td>-</td>
+      <td>2026-09-03T02:25:23.584Z</td><td><span class="review-badge">Review manual</span> <button onclick="showDetail(9)">Detail</button></td>
+    </tr><tr>
+      <td>8</td><td>Patient</td><td>TEST-409</td>
+      <td><span class="status FAILED">FAILED</span></td>
+      <td>1/5</td><td>-</td>
+      <td>2026-09-03T02:25:23.584Z</td><td><span class="review-badge">Review manual</span> <button onclick="showDetail(8)">Detail</button></td>
+    </tr><tr>
+      <td>7</td><td>Patient</td><td>TEST-404</td>
+      <td><span class="status FAILED">FAILED</span></td>
+      <td>1/5</td><td>-</td>
+      <td>2026-09-03T02:25:23.584Z</td><td><span class="review-badge">Review manual</span> <button onclick="showDetail(7)">Detail</button></td>
+    </tr><tr>
+      <td>6</td><td>Patient</td><td>TEST-403</td>
+      <td><span class="status FAILED">FAILED</span></td>
+      <td>1/5</td><td>-</td>
+      <td>2026-09-03T02:25:23.584Z</td><td><span class="review-badge">Review manual</span> <button onclick="showDetail(6)">Detail</button></td>
+    </tr><tr>
+      <td>5</td><td>Patient</td><td>TEST-400</td>
+      <td><span class="status FAILED">FAILED</span></td>
+      <td>1/5</td><td>-</td>
+      <td>2026-09-03T02:25:23.584Z</td><td><span class="review-badge">Review manual</span> <button onclick="showDetail(5)">Detail</button></td>
+    </tr><tr>
+      <td>4</td><td>Patient</td><td>TEST-PATIENT-003</td>
+      <td><span class="status BLOCKED">BLOCKED</span></td>
+      <td>0/5</td><td>-</td>
+      <td>2026-09-03T02:16:23.247Z</td><td><button onclick="patientLookup(&#39;TEST-RM-003&#39;)">🔍 Siapkan Patient</button> <button onclick="showDetail(4)">Detail</button></td>
+    </tr><tr>
+      <td>3</td><td>Encounter</td><td>TEST-ENCOUNTER-001</td>
+      <td><span class="status FAILED">FAILED</span></td>
+      <td>1/5</td><td>-</td>
+      <td>2026-09-03T02:16:23.247Z</td><td><button onclick="showDetail(3)">Detail</button></td>
+    </tr><tr>
+      <td>2</td><td>Patient</td><td>TEST-PATIENT-002</td>
+      <td><span class="status FAILED">FAILED</span></td>
+      <td>1/5</td><td>-</td>
+      <td>2026-09-03T02:16:23.247Z</td><td><span class="review-badge">Review manual</span> <button onclick="showDetail(2)">Detail</button></td>
+    </tr><tr>
+      <td>1</td><td>Patient</td><td>TEST-PATIENT-001</td>
+      <td><span class="status SUCCESS">SUCCESS</span></td>
+      <td>1/5</td><td>-</td>
+      <td>2026-09-03T02:16:23.247Z</td><td><span class="ihs-ok">✓ Terhubung</span><button onclick="showDetail(1)">Detail</button></td>
+    </tr></tbody></table></div></section>
+    <section class="panel"><h2>Error Center &amp; Advisory</h2><div class="table-wrap"><table><thead><tr><th>Time</th><th>Resource</th><th>Error</th><th>HTTP</th><th>Attempt</th><th>Saran Perbaikan</th></tr></thead><tbody id="errors"><tr>
+      <td>2026-09-05T02:59:17.220Z</td><td>Patient #24</td>
+      <td><strong>PATIENT_NOT_FOUND</strong><br><small>Tidak ditemukan Patient SATUSEHAT untuk NIK; lookup tetap read-only dan tidak membuat Patient otomatis</small></td>
+      <td>200</td><td>2</td><td><div class="advisory"><div><span class="priority MEDIUM">MEDIUM</span> <strong>Patient belum ditemukan di SATUSEHAT</strong></div><small>Verifikasi NIK dan environment. Jika memang belum ada dan fase CREATE sudah diaktifkan, lanjutkan melalui workflow create yang terkontrol; jangan membuat dari mode monitoring.</small></div></td>
+    </tr><tr>
+      <td>2026-09-05T02:52:08.981Z</td><td>Patient #24</td>
+      <td><strong>PATIENT_NIK_INVALID</strong><br><small>NIK pasien Khanza tidak valid atau belum tersedia</small></td>
+      <td>-</td><td>1</td><td><div class="advisory"><div><span class="priority HIGH">HIGH</span> <strong>NIK pasien tidak valid</strong></div><small>Perbaiki data NIK di sumber Khanza terlebih dahulu. Dashboard tidak mengubah source-of-truth dan tidak membuat Patient otomatis.</small></div></td>
+    </tr><tr>
+      <td>2026-09-03T08:25:39.158Z</td><td>Patient #13</td>
+      <td><strong>PATIENT_MULTIPLE_MATCHES</strong><br><small>SATUSEHAT mengembalikan lebih dari satu Patient untuk NIK yang sama; mapping diblokir untuk review</small></td>
+      <td>200</td><td>2</td><td><div class="advisory"><div><span class="priority HIGH">HIGH</span> <strong>Multiple Patient untuk satu NIK</strong></div><small>Lakukan review identitas dan mapping secara manual. Jangan memilih kandidat pertama dan jangan membuat Patient duplikat.</small></div></td>
+    </tr><tr>
+      <td>2026-09-03T08:24:35.362Z</td><td>Patient #15</td>
+      <td><strong>PATIENT_NIK_INVALID</strong><br><small>NIK pasien Khanza tidak valid atau belum tersedia</small></td>
+      <td>-</td><td>2</td><td><div class="advisory"><div><span class="priority HIGH">HIGH</span> <strong>NIK pasien tidak valid</strong></div><small>Perbaiki data NIK di sumber Khanza terlebih dahulu. Dashboard tidak mengubah source-of-truth dan tidak membuat Patient otomatis.</small></div></td>
+    </tr><tr>
+      <td>2026-09-03T08:01:40.118Z</td><td>Patient #25</td>
+      <td><strong>PATIENT_NIK_INVALID</strong><br><small>NIK pasien Khanza tidak valid atau belum tersedia</small></td>
+      <td>-</td><td>1</td><td><div class="advisory"><div><span class="priority HIGH">HIGH</span> <strong>NIK pasien tidak valid</strong></div><small>Perbaiki data NIK di sumber Khanza terlebih dahulu. Dashboard tidak mengubah source-of-truth dan tidak membuat Patient otomatis.</small></div></td>
+    </tr><tr>
+      <td>2026-09-03T07:52:02.075Z</td><td>Patient #26</td>
+      <td><strong>PATIENT_NIK_INVALID</strong><br><small>NIK pasien Khanza tidak valid atau belum tersedia</small></td>
+      <td>-</td><td>1</td><td><div class="advisory"><div><span class="priority HIGH">HIGH</span> <strong>NIK pasien tidak valid</strong></div><small>Perbaiki data NIK di sumber Khanza terlebih dahulu. Dashboard tidak mengubah source-of-truth dan tidak membuat Patient otomatis.</small></div></td>
+    </tr><tr>
+      <td>2026-09-03T07:51:40.303Z</td><td>Patient #27</td>
+      <td><strong>PATIENT_NIK_INVALID</strong><br><small>NIK pasien Khanza tidak valid atau belum tersedia</small></td>
+      <td>-</td><td>1</td><td><div class="advisory"><div><span class="priority HIGH">HIGH</span> <strong>NIK pasien tidak valid</strong></div><small>Perbaiki data NIK di sumber Khanza terlebih dahulu. Dashboard tidak mengubah source-of-truth dan tidak membuat Patient otomatis.</small></div></td>
+    </tr><tr>
+      <td>2026-09-03T07:51:32.741Z</td><td>Patient #28</td>
+      <td><strong>PATIENT_NIK_INVALID</strong><br><small>NIK pasien Khanza tidak valid atau belum tersedia</small></td>
+      <td>-</td><td>1</td><td><div class="advisory"><div><span class="priority HIGH">HIGH</span> <strong>NIK pasien tidak valid</strong></div><small>Perbaiki data NIK di sumber Khanza terlebih dahulu. Dashboard tidak mengubah source-of-truth dan tidak membuat Patient otomatis.</small></div></td>
+    </tr><tr>
+      <td>2026-09-03T03:48:11.989Z</td><td>Patient #13</td>
+      <td><strong>PATIENT_IDENTIFIER_MISMATCH</strong><br><small>Response Patient tidak memiliki identifier NIK yang cocok persis; mapping diblokir untuk review</small></td>
+      <td>200</td><td>1</td><td><div class="advisory"><div><span class="priority HIGH">HIGH</span> <strong>Identifier NIK tidak cocok</strong></div><small>Periksa identifier dan environment SATUSEHAT. Blokir mapping sampai kecocokan NIK terverifikasi.</small></div></td>
+    </tr><tr>
+      <td>2026-09-03T03:46:25.087Z</td><td>Patient #15</td>
+      <td><strong>PATIENT_NIK_INVALID</strong><br><small>NIK pasien Khanza tidak valid atau belum tersedia</small></td>
+      <td>-</td><td>1</td><td><div class="advisory"><div><span class="priority HIGH">HIGH</span> <strong>NIK pasien tidak valid</strong></div><small>Perbaiki data NIK di sumber Khanza terlebih dahulu. Dashboard tidak mengubah source-of-truth dan tidak membuat Patient otomatis.</small></div></td>
+    </tr><tr>
+      <td>2026-09-03T02:25:23.584Z</td><td>Patient #11</td>
+      <td><strong>SOMETHING_UNEXPECTED</strong><br><small>Simulasi: error yang belum memiliki rule advisory.</small></td>
+      <td>418</td><td>1</td><td><div class="advisory"><div><span class="priority LOW">LOW</span> <strong>Error perlu pemeriksaan manual</strong></div><small>Periksa response, error code, payload terkait, dan log waktu kejadian. Tambahkan rule setelah pola error teridentifikasi.</small></div></td>
+    </tr><tr>
+      <td>2026-09-03T02:25:23.584Z</td><td>Patient #10</td>
+      <td><strong>SERVER_ERROR</strong><br><small>Simulasi: layanan tujuan mengalami gangguan.</small></td>
+      <td>500</td><td>1</td><td><div class="advisory"><div><span class="priority HIGH">HIGH</span> <strong>Gangguan layanan atau koneksi tujuan</strong></div><small>Periksa status layanan, response body, correlation/request ID, dan waktu kejadian. Gunakan retry terkontrol setelah layanan stabil.</small></div></td>
+    </tr><tr>
+      <td>2026-09-03T02:25:23.584Z</td><td>Patient #9</td>
+      <td><strong>RATE_LIMIT</strong><br><small>Simulasi: rate limit tercapai.</small></td>
+      <td>429</td><td>1</td><td><div class="advisory"><div><span class="priority MEDIUM">MEDIUM</span> <strong>Rate limit tercapai</strong></div><small>Kurangi frekuensi request dan gunakan backoff terkontrol saat fase pengiriman diaktifkan.</small></div></td>
+    </tr><tr>
+      <td>2026-09-03T02:25:23.584Z</td><td>Patient #8</td>
+      <td><strong>CONFLICT</strong><br><small>Simulasi: terjadi konflik atau duplikasi.</small></td>
+      <td>409</td><td>1</td><td><div class="advisory"><div><span class="priority MEDIUM">MEDIUM</span> <strong>Konflik atau duplikasi</strong></div><small>Periksa resource dan identifier yang sudah tercatat. Jangan retry berulang sebelum penyebab konflik dipastikan.</small></div></td>
+    </tr><tr>
+      <td>2026-09-03T02:25:23.584Z</td><td>Patient #7</td>
+      <td><strong>NOT_FOUND</strong><br><small>Simulasi: resource tidak ditemukan.</small></td>
+      <td>404</td><td>1</td><td><div class="advisory"><div><span class="priority MEDIUM">MEDIUM</span> <strong>Resource atau referensi tidak ditemukan</strong></div><small>Periksa identifier, endpoint/environment, Organization, dan referensi resource. Pastikan ID berasal dari environment yang sama.</small></div></td>
+    </tr><tr>
+      <td>2026-09-03T02:25:23.584Z</td><td>Patient #6</td>
+      <td><strong>FORBIDDEN</strong><br><small>Simulasi: akses ditolak.</small></td>
+      <td>403</td><td>1</td><td><div class="advisory"><div><span class="priority HIGH">HIGH</span> <strong>Akses ditolak</strong></div><small>Periksa scope/role credential dan hak akses Organization pada environment yang digunakan.</small></div></td>
+    </tr><tr>
+      <td>2026-09-03T02:25:23.584Z</td><td>Patient #5</td>
+      <td><strong>BAD_REQUEST</strong><br><small>Simulasi: request tidak valid.</small></td>
+      <td>400</td><td>1</td><td><div class="advisory"><div><span class="priority MEDIUM">MEDIUM</span> <strong>Request tidak valid</strong></div><small>Periksa endpoint, HTTP method, header, parameter, dan struktur payload berdasarkan environment yang digunakan.</small></div></td>
+    </tr><tr>
+      <td>2026-09-03T02:16:23.247Z</td><td>Encounter #3</td>
+      <td><strong>VALIDATION_ERROR</strong><br><small>Simulasi: data resource ditolak karena validasi payload.</small></td>
+      <td>422</td><td>1</td><td><div class="advisory"><div><span class="priority HIGH">HIGH</span> <strong>Data ditolak karena validasi</strong></div><small>Periksa field wajib, tipe/format nilai, terminology, referensi resource, dan mapping Khanza ke SATUSEHAT. Perbaiki sumber/mapping terlebih dahulu.</small></div></td>
+    </tr><tr>
+      <td>2026-09-03T02:16:23.247Z</td><td>Patient #2</td>
+      <td><strong>AUTH_UNAUTHORIZED</strong><br><small>Simulasi: kredensial atau token tidak valid.</small></td>
+      <td>401</td><td>1</td><td><div class="advisory"><div><span class="priority HIGH">HIGH</span> <strong>Autentikasi tidak valid</strong></div><small>Periksa konfigurasi credential, masa berlaku token, dan mekanisme autentikasi. Setelah diperbaiki, ulangi pemeriksaan resource yang terdampak.</small></div></td>
+    </tr></tbody></table></div></section>
+  </main>
+  <dialog id="detail"><button class="close" onclick="detail.close()">×</button><pre id="detailBody"></pre></dialog>
+  <script src="./Dashboard SATUSEHAT_files/app.js.download"></script>
+
+
+</body></html>
