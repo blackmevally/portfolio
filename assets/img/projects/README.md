@@ -1,20 +1,33 @@
-# Real project screenshots
+# Real Product Evidence
 
-This folder is the production screenshot layer for the portfolio.
+Folder ini adalah tempat screenshot asli produk/project BLACKMEVALLY.
 
-Use these filenames when adding the real UI captures from each project:
+## Screenshot yang dibutuhkan
 
-- `antrian-pendaftaran.webp`
-- `antrian-farmasi.webp`
-- `hospital-dashboard.webp`
-- `satusehat-integration.webp`
-- `aplicare-monitoring.webp`
-- `orthanc-integration.webp`
-- `simrs-integration.webp`
-- `masjid-digital.webp`
-- `parking-gate.webp`
-- `face-recognition-attendance.webp`
+Gunakan capture asli dari aplikasi lokal, staging, atau production. Jangan gunakan mockup yang seolah-olah merupakan deployment nyata.
 
-Recommended capture: 1600x1000 or 16:10, with patient/customer-sensitive information removed or blurred.
+| File | Produk |
+|---|---|
+| `antrian-pendaftaran.webp` | Antrian Poli / Pendaftaran |
+| `antrian-farmasi.webp` | Antrian Farmasi |
+| `hospital-dashboard.webp` | Hospital Dashboard |
+| `satusehat-integration.webp` | SatuSehat Integration |
+| `aplicare-monitoring.webp` | Aplicare Monitoring |
+| `orthanc-integration.webp` | Orthanc Integration |
+| `simrs-integration.webp` | SIMRS Integration |
+| `masjid-digital.webp` | Masjid Digital |
+| `parking-gate.webp` | Parking Gate System |
+| `face-recognition-attendance.webp` | Face Recognition Attendance |
 
-The current portfolio remains usable with the branded SVG visual fallback. Replace each fallback with the corresponding real screenshot when available; do not publish confidential patient data, credentials, tokens, internal IPs, or production secrets.
+## Capture rules
+
+1. Capture halaman yang benar-benar berjalan.
+2. Untuk healthcare, blur/hapus nama pasien, nomor rekam medis, alamat, tanggal lahir, token, credential, dan data sensitif lain.
+3. Jangan menampilkan password, API key, database credential, atau URL internal yang sensitif.
+4. Prioritaskan screenshot 16:9 untuk display/dashboard dan 4:3 atau 16:9 untuk aplikasi operator.
+5. Format `.webp` disarankan agar halaman portfolio tetap ringan.
+6. Nama file harus mengikuti tabel di atas.
+
+## Status Phase 5
+
+Visual SVG yang ada tetap menjadi fallback. File `.webp` adalah slot untuk **evidence asli** dan tidak boleh diganti dengan ilustrasi fiktif.
